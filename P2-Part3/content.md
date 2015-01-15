@@ -111,7 +111,7 @@ Now we will need to check if this win condition occurs. Add the following lines 
             [self win];
         }
 
-	Once the value of the merged tile reaches the value of the *WIN_TILE* we call the *win* method! Add the *win* method to *Grid.m*:
+Once the value of the merged tile reaches the value of the *WIN_TILE* we call the *win* method! Add the *win* method to *Grid.m*:
 
     - (void)win {
         [self endGameWithMessage:@"You win!"];
@@ -205,7 +205,7 @@ We have one little issue left, currently it is really difficult to lose in the g
 
 To make loosing easier open *Tile.m* and change the line in the *init* method that generates a random number to:
 
-            self.value = (arc4random()%200+1)*2;
+    self.value = (arc4random()%200+1)*2;
 
 Now the tile numbers will be so widely spread that it is very easy to lose. **Run the new version of the game.** After a couple of moves your grid should look like this:
 
@@ -389,12 +389,12 @@ Open *Grid.m* and import the *GameEnd* class:
 
 Now we need to add some code to display the *GameEnd* as a popup once a game ends. The place to do that is the *endGameWithMessage* method. Add the following lines to the beginning of the *endGameWithMessage* method in *Grid.m*:
 
-        GameEnd *gameEndPopover = (GameEnd *)[CCBReader load:@"GameEnd"];
-        gameEndPopover.positionType = CCPositionTypeNormalized;
-        gameEndPopover.position = ccp(0.5, 0.5);
-        gameEndPopover.zOrder = INT_MAX;
-        [gameEndPopover setMessage:message score:self.score];
-        [self addChild:gameEndPopover];
+    GameEnd *gameEndPopover = (GameEnd *)[CCBReader load:@"GameEnd"];
+    gameEndPopover.positionType = CCPositionTypeNormalized;
+    gameEndPopover.position = ccp(0.5, 0.5);
+    gameEndPopover.zOrder = INT_MAX;
+    [gameEndPopover setMessage:message score:self.score];
+    [self addChild:gameEndPopover];
 
  **Now everything is in place!** We are setting the game end screen up and presenting it when a game terminates. You should now test this feature (hint: changing the *WIN_TILE* value makes testing a lot easier). When you win or lose a game you should see a result similar to this:
 

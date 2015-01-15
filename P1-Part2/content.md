@@ -304,7 +304,7 @@ Modify this part of the move method:
                 }
     ...
 
-	To use our new method:
+To use our new method:
 
     ...
                 /* find the farthest position by iterating in direction of the vector until we reach border of grid or an occupied cell*/
@@ -347,7 +347,7 @@ Next, we need to add the *updateValueDisplay* method. Add the method to *Tile.m*
 
 This method  just updates the text of the label with the current value of the tile.
 
-              As a last step we need to implement the *didLoadFromCCB* method in *Tile.m*. Once the CCB file is loaded entirely we want our label to display the current value of the tile. Add the following implementation to *Tile.m*
+As a last step we need to implement the *didLoadFromCCB* method in *Tile.m*. Once the CCB file is loaded entirely we want our label to display the current value of the tile. Add the following implementation to *Tile.m*
 
     - (void)didLoadFromCCB {
         [self updateValueDisplay];
@@ -369,7 +369,7 @@ Replace this block inside the *move* method:
                 }
     ...
 
-	With this one:
+With this one:
 
                 BOOL performMove = FALSE;
                 /* If we stopped moving in vector direction, but next index in vector direction is valid, this means the cell is occupied. Let's check if we can merge them*/
@@ -439,7 +439,7 @@ Once you got that the merging should look like this:
 
 # Spawn new tiles each round
 
-<span style="">Slowly it's time to add more tiles to the game. In *2048* a new tile gets spawned whenever the player performs a move. An action in the game is only considered a "move" when one of the tiles actually changes positions. If the user chooses a direction that will not allow any tile on the grid to move then no new tile will be spawned.</span>
+Slowly it's time to add more tiles to the game. In *2048* a new tile gets spawned whenever the player performs a move. An action in the game is only considered a "move" when one of the tiles actually changes positions. If the user chooses a direction that will not allow any tile on the grid to move then no new tile will be spawned.</span>
 
 Since a new tile needs to be spawned upon each completed move, this functionality needs to be added to the *move* method. We will also need to introduce a variable that stores wether any of the tiles has moved in the current move action or not.
 
@@ -447,7 +447,7 @@ Add this variable definition to the beginning of the *move* method:
 
        BOOL movedTilesThisRound = FALSE;
 
-	Next, we need to set this variable to *TRUE* when we moved or merged a tile. Update the following part of the *move* method and add the lines that set *movedTilesThisRound* to *TRUE*:
+Next, we need to set this variable to *TRUE* when we moved or merged a tile. Update the following part of the *move* method and add the lines that set *movedTilesThisRound* to *TRUE*:
 
                 if ([self indexValid:newX+direction.x y:newY+direction.y]) {
                     // get the other tile
@@ -502,7 +502,7 @@ To implement this we will need to add a *BOOL* variable to our *Tile* that will 
 
     @property (nonatomic, assign) BOOL mergedThisRound;
 
-	Now we have a property that allows us to store if a tile has been merged in a move or not. We will need to use this property within our *mergeTileAtIndex* and *move* methods. Add this line to *mergeTileAtIndex* after a value has been assigned to *otherTile:*
+Now we have a property that allows us to store if a tile has been merged in a move or not. We will need to use this property within our *mergeTileAtIndex* and *move* methods. Add this line to *mergeTileAtIndex* after a value has been assigned to *otherTile:*
 
     otherTile.mergedThisRound = TRUE;
 
@@ -534,7 +534,7 @@ Inside our *move* method we already have a great position to add this functional
              [self spawnRandomTile];
          }
 
-	To look like this:
+To look like this:
 
          if (movedTilesThisRound) {
              [self nextRound];
