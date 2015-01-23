@@ -1,6 +1,7 @@
 ---
 title: Build your own 2048 with SpriteBuilder and Cocos2D - Part 2!
 slug: part-2
+gamernews_id: 387
 ---                    
 
 [In the first part of this tutorial](https://www.makegameswith.us/gamernews/384/build-your-own-2048-with-spritebuilder-and-cocos2d) we set up the basic project, rendered a grid and implemented multiple methods to spawn random tiles when the game starts up. In this part we are going to add interaction to the game - we will start moving tiles!
