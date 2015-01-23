@@ -1,6 +1,7 @@
 ---
 title: Build your own 2048 with SpriteBuilder and Cocos2D - Part 1!
 slug: part-1
+gamernews_id: 384
 ---            
 
 This tutorial will explain in detail how to build the popular game *2048* from scratch, using SpriteBuilder and Cocos2D. The gameplay itself is simple but coding the game comes alongside with some puzzles and challenges. You will learn a lot in the next couple of hours!
