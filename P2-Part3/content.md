@@ -1,6 +1,7 @@
 ---
 title: Build your own 2048 with SpriteBuilder and Cocos2D - Part 3!
 slug: part-3
+gamernews_id: 388
 ---                    
 
 [In the second part of this tutorial](https://www.makegameswith.us/gamernews/387/build-your-own-2048-with-spritebuilder-and-cocos2d) we have added user interaction, tile movement and tile merging. We implemented all the basic mechanics of the game. In this part of the tutorial we will add a win and a lose condition to the game, keep track of scores and add some finishing touches to our very own version of *2048!*
