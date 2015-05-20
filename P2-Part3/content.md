@@ -82,7 +82,7 @@ We need to add one last method. When an object in Objective-C is deallocated bec
 
  **Well done!** Now you can play the game and should see the score increasing:
 
-![](https://static.makegameswith.us/gamernews_images/fcHBGldLSZ/score.gif)
+![](./score.gif)
 
 You now have not only added a new feature to the game, you also learned about an easy way to listen for changes of properties of other Objective-C objects!
 
