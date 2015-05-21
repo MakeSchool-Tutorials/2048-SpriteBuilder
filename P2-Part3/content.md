@@ -2,9 +2,9 @@
 title: Build your own 2048 with SpriteBuilder and Cocos2D - Part 3!
 slug: part-3
 gamernews_id: 388
----                    
+---
 
-[In the second part of this tutorial](https://www.makegameswith.us/gamernews/387/build-your-own-2048-with-spritebuilder-and-cocos2d) we have added user interaction, tile movement and tile merging. We implemented all the basic mechanics of the game. In this part of the tutorial we will add a win and a lose condition to the game, keep track of scores and add some finishing touches to our very own version of *2048!*
+[In the second part of this tutorial](https://www.makeschool.com/tutorials/build-your-own-2048-with-spritebuilder-and-cocos2d/part-2) we have added user interaction, tile movement and tile merging. We implemented all the basic mechanics of the game. In this part of the tutorial we will add a win and a lose condition to the game, keep track of scores and add some finishing touches to our very own version of *2048!*
 
 We will start with adding some scores to our game.
 
@@ -82,7 +82,7 @@ We need to add one last method. When an object in Objective-C is deallocated bec
 
  **Well done!** Now you can play the game and should see the score increasing:
 
-![](https://static.makegameswith.us/gamernews_images/fcHBGldLSZ/score.gif)
+![](./score.gif)
 
 You now have not only added a new feature to the game, you also learned about an easy way to listen for changes of properties of other Objective-C objects!
 
@@ -92,7 +92,7 @@ Now let's determine when a game is over so that we can store a highscore!
 
 A player loses in *2048* when they cannot perform any further move. This situation occurs when the grid is full and none of the existing tiles can be merged. We need to detect this situation so that we can end the game. The player wins the game if they reach the "2048" tiles.
 
-The best place to detect if the loosing condition occurred in the game is the *nextRound* method. In the *nextRound* method we spawn a new random tile. After we have spawned a tile we can check if the grid is full and if any further moves are possible. If no moves are possible we end the game.
+The best place to detect if the losing condition occurred in the game is the *nextRound* method. In the *nextRound* method we spawn a new random tile. After we have spawned a tile we can check if the grid is full and if any further moves are possible. If no moves are possible we end the game.
 
 The best place to check the winning condition is in the *mergeTileAtIndex* method. That is the method where we actually perform the merge between two tiles and determine the new value of the merged tile. If the new value is *2048* we know that the player has won the game.
 
@@ -128,11 +128,11 @@ We simply pass a different text to method for lost or won games. Add the *endGam
 
 For now, all we are doing in this method is logging to the console for debugging purporses. Now you are ready to test this new feature. Run the game. Merge tiles until you reach the "8" tile, then you should see **"You win!"** appear in the Xcode console.
 
-Well done! Now let's implement the loosing condition.
+Well done! Now let's implement the losing condition.
 
-## Implementing the loosing condition
+## Implementing the losing condition
 
-Detecting the loosing situation is a little more complex then a win situation. A loosing situation occurs when the entire grid is filled with tiles and no merges between these tiles are possible. Then there is no possible move left in the game. We will have to add code to detect such a situation in our game. On a high level with have do to the following: in the *nextRound* method we need to check if the player is able to perform a move or not. If the player cannot move the tiles in any direction we need to end the game.
+Detecting the losing situation is a little more complex then a win situation. A losing situation occurs when the entire grid is filled with tiles and no merges between these tiles are possible. Then there is no possible move left in the game. We will have to add code to detect such a situation in our game. On a high level with have do to the following: in the *nextRound* method we need to check if the player is able to perform a move or not. If the player cannot move the tiles in any direction we need to end the game.
 
 Add the following lines to the end of the *nextRound* method in *Grid.m*:
 
@@ -204,13 +204,13 @@ As you may remember the current implementation of *endGameWithMessage* just logs
 
 We have one little issue left, currently it is really difficult to lose in the game. It will take many moves and result in a very long debugging cycle.
 
-To make loosing easier open *Tile.m* and change the line in the *init* method that generates a random number to:
+To make losing easier open *Tile.m* and change the line in the *init* method that generates a random number to:
 
     self.value = (arc4random()%200+1)*2;
 
 Now the tile numbers will be so widely spread that it is very easy to lose. **Run the new version of the game.** After a couple of moves your grid should look like this:
 
-![](https://static.makegameswith.us/gamernews_images/f0P4wmBZhm/iOS Simulator Screen shot 11 Apr 2014 23.11.27.png)
+![](./SimulatorWow.png)
 
 Additionally you should see a log message "**You lose!"** in the Xcode console. We now can detect if a player wins or loses the game!
 
@@ -295,7 +295,7 @@ You can see that we are now reacting to changes of "score" and "highscore". If t
 
 Now you can run the new version of the game and see how the highscore is stored and displayed in the game:
 
-![](https://static.makegameswith.us/gamernews_images/LKCEmcvToc/iOS Simulator Screen shot 11 Apr 2014 23.26.42.png)
+![](./highscore.png)
 
 # Add a Game Over screen
 
@@ -305,15 +305,15 @@ To start with this step we will create a new CCB file for the Game Over screen i
 
 Open the SpriteBuilder project and create a new CCB file:
 
-![](https://static.makegameswith.us/gamernews_images/pGvqUUV3JQ/Screen Shot 2014-04-12 at 01.07.50.png)
+![](./SpriteBuilder_gameEnd.png)
 
 Set the root node size to (320,200) and the anchor point to (0.5, 0.5):
 
-![](https://static.makegameswith.us/gamernews_images/FdEqeaKezu/Screen Shot 2014-04-12 at 01.12.45.png)
+![](./SpriteBuilder_gameEnd_size.png)
 
 Add a *CCNodeColor* to this node:
 
-![](https://static.makegameswith.us/gamernews_images/gq61gZL59Y/Screen Shot 2014-04-12 at 01.16.11.png)
+![](./SpriteBuilder_gameEnd_color.png)
 
 Set the width and the height to a 100% of the parent container. Set the background color to green and the opacity 0.8. Now we have a green slightly transparent background for our game over screen.
 
@@ -321,23 +321,23 @@ Now we'll need to add two labels to display a game over message and the score th
 
 Add two labels and a button to the node so that your game end screen looks similar to this:
 
-![](https://static.makegameswith.us/gamernews_images/NFWIRTmZ8M/Screen Shot 2014-04-12 at 01.47.12.png)
+![](./SpriteBuilder_gameEnd_finish.png)
 
 Now we need to set up some code connections. We need to change the text label that displays the win/lose text and we need to update the score that is displayed. Additionally we need to link a method to the "Restart" button.
 
-![](https://static.makegameswith.us/gamernews_images/M465mU0Auu/Screen Shot 2014-04-12 at 02.39.47.png)
+![](./SpriteBuilder_gameEnd_code_connection.png)
 
 Link the top label to a *_messageLabel* variable.
 
-![](https://static.makegameswith.us/gamernews_images/rLWD6mom6e/Screen Shot 2014-04-12 at 02.41.21.png)
+![](./SpriteBuilder_gameEnd_score_code_connection.png)
 
 Link the displayed score to a variable called *_scoreLabel*.
 
-![](https://static.makegameswith.us/gamernews_images/YQxVZszBdH/Screen Shot 2014-04-12 at 02.47.04.png)
+![](./SpriteBuilder_gameEnd_button_config.png)
 
 Set up a selector called "newGame" for the "Restart" button.
 
-![](https://static.makegameswith.us/gamernews_images/t2ksRYw87f/Screen Shot 2014-04-12 at 02.50.20.png)
+![](./SpriteBuilder_gameEnd_class_connection.png)
 
 Finally, set up a custom class called *GameEnd* for the root node.
 
@@ -345,7 +345,7 @@ Now we are done with the setup in SpriteBuilder. **Publish the project and switc
 
 In Xcode we need to create the *GameEnd* class that is linked to the CCB file we just created in SpriteBuilder:
 
-![](https://static.makegameswith.us/gamernews_images/9h3s0DQg1I/Screen Shot 2014-04-12 at 03.04.42.png)
+![](./Xcode_gameEnd.png)
 
 Next, we need to set up the variables and methods that we have linked in our SpriteBuilder project.
 
@@ -399,7 +399,7 @@ Now we need to add some code to display the *GameEnd* as a popup once a game end
 
  **Now everything is in place!** We are setting the game end screen up and presenting it when a game terminates. You should now test this feature (hint: changing the *WIN_TILE* value makes testing a lot easier). When you win or lose a game you should see a result similar to this:
 
-![](https://static.makegameswith.us/gamernews_images/rDP4OUjycj/iOS Simulator Screen shot 12 Apr 2014 04.07.10.png)
+![](./SimulatorComplete.png)
 
 Basically the game is complete now! There's one minor detail missing: changing the color of tiles depending on their value. That's the last polishing step in this tutorial.
 
@@ -450,12 +450,12 @@ This is the last step and it isn't going to be very complicated. You only need t
 
 All this switch-case does is mapping a tile number to a color. Now your game should look a little more colorful:
 
-![](https://static.makegameswith.us/gamernews_images/oW03inQuoI/iOS Simulator Screen shot 12 Apr 2014 04.20.54.png)
+![](./SimulatorPolish.png)
 
 **You're done!** Congratulations, you have come a really long way. I hope you enjoyed and once again learned a lot more about iOS and game development!
 
 Stay tuned for future tutorials &amp; [apply to our Summer Academy](http://makegameswith.us/summer-academy/)!
 
-benji@makegameswith.us
+benji@makeschool.com  
 
-Reminder: you can find [the entire project on GitHub](https://github.com/MakeGamesWithUs/2048-SpriteBuilder-Tutorial).
+Reminder: you can find [the entire project on GitHub](https://github.com/MakeSchool/2048-SpriteBuilder-Tutorial).
