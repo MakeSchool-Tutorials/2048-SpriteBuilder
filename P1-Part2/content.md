@@ -1,5 +1,5 @@
 ---
-title: Build your own 2048 with SpriteBuilder and Cocos2D - Part 2!
+title: Build your own 2048 with SpriteBuilder & Cocos2D - Pt 2
 slug: part-2
 gamernews_id: 387
 ---
@@ -88,7 +88,7 @@ Great! Now we need to implement the *move* method that we are calling here. The 
 
 This is a good time to do some recap on the rules that determine the tile movement in *2048*. The most important one is the order in which the tiles are moved. Here's an illustrated example of a movement to the left, that shows how each individual tile is moved:
 
-![](./TileMovement.png)
+![Moving tiles](./TileMovement.png)
 
 When moving to the left, the left most tile is moved first. When moving to the right the right most tile is moved first, etc. Then the second most left/right tile is moved, etc. This works the same way for moving tiles up or down. In this case the tile with number "2" is moved first. Since there are no tiles in the way it is moved entirely to the left side. In the second part of the movement tile "4" is moved. It cannot be moved entirely to the left because tile "2" occupies this spot. That's why it is moved to the second most left spot. *Note: the player will never see the intermediate step (Move Part 1) of the tile movement it is only illustrated here to explain the rules of 2048.*
 
@@ -179,7 +179,7 @@ The bottom image illustrates how the second loop iterates through all tiles from
 
 For this example we assume a movement to the right:
 
-![](./TileSearch.png)
+![Iterating through tiles](./TileSearch.png)
 
 Now you should understand:
 
@@ -270,7 +270,7 @@ You have completed a huge amount of steps now:
 
 Now it's once again time to run the game and take a look at the results. You should be able to move the tiles from one edge to another by swiping in that direction:
 
-![](./SwipeMove.gif)
+![Moving tiles by swiping](./SwipeMove.gif)
 
 **Well done!** Now the game already looks a lot like 2048. As you can see in the little demo above, tiles can overlap at the moment. Fixing this is the next little challenge we are going to tackle!
 
@@ -356,7 +356,7 @@ As a last step we need to implement the *didLoadFromCCB* method in *Tile.m*. Onc
 
 Well done! Now you should see the initial tiles spawning with values of 4 or 2:
 
-![](./Simulator.png)
+![Spawning tiles](./Simulator.png)
 
 Now that tiles have values we are able to check if two tiles could be merged or not. We will need to add this check in our *move* method.
 
@@ -436,7 +436,7 @@ Now you will be able to merge two tiles with the same value. Since we currently 
 
 Once you got that the merging should look like this:
 
-![](./Merge.gif)
+![Merging](./Merge.gif)
 
 # Spawn new tiles each round
 
@@ -487,7 +487,7 @@ Now there's only one change to the *move* method left. Add the following lines t
 
 Now you will spawn a new tile whenever the existing tiles have been moved or merged! **Play the new version of the game to test this feature!** After a while your grid should look similar to this:
 
-![](SimulatorFull.png)
+![Almost a full game](SimulatorFull.png)
 
 **This is basically a playable game already, well done!** If you played long enough you will have realized that there is a little issue with the game. Unlike the original *2048* a tile that has been merged in this move can be merged again! We are going to fix this in the next step.
 
@@ -495,7 +495,7 @@ Now you will spawn a new tile whenever the existing tiles have been moved or mer
 
 The rules of *2048* don't allow a tile to merge twice within in one move. Here is an illustration of an example situation assuming an upward tile movement:
 
-![](./TileMerge.png)
+![Merging tiles](./TileMerge.png)
 
 At the top you can see the example scenario. On the bottom left you can see what is happening in our version of the game. The two "4" tiles merge to an "8" tile and then the merged "8" tile merges with the other "8" tile to a "16" tile. This shouldn't happen. On the right you can see the expected outcome. The merged "8" tile cannot merge with any other tile, because it already has been merged in this move, so two "8" tiles remain on the grid.
 
