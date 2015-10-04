@@ -1,5 +1,5 @@
 ---
-title: Build your own 2048 with SpriteBuilder and Cocos2D - Part 3!
+title: Build your own 2048 with SpriteBuilder & Cocos2D - Pt 3
 slug: part-3
 gamernews_id: 388
 ---
@@ -82,7 +82,7 @@ We need to add one last method. When an object in Objective-C is deallocated bec
 
  **Well done!** Now you can play the game and should see the score increasing:
 
-![](./score.gif)
+![Increasing score](./score.gif)
 
 You now have not only added a new feature to the game, you also learned about an easy way to listen for changes of properties of other Objective-C objects!
 
@@ -210,7 +210,7 @@ To make losing easier open *Tile.m* and change the line in the *init* method tha
 
 Now the tile numbers will be so widely spread that it is very easy to lose. **Run the new version of the game.** After a couple of moves your grid should look like this:
 
-![](./SimulatorWow.png)
+![Detecting state of game](./SimulatorWow.png)
 
 Additionally you should see a log message "**You lose!"** in the Xcode console. We now can detect if a player wins or loses the game!
 
@@ -295,7 +295,7 @@ You can see that we are now reacting to changes of "score" and "highscore". If t
 
 Now you can run the new version of the game and see how the highscore is stored and displayed in the game:
 
-![](./highscore.png)
+![Storing the highscore](./highscore.png)
 
 # Add a Game Over screen
 
@@ -305,15 +305,15 @@ To start with this step we will create a new CCB file for the Game Over screen i
 
 Open the SpriteBuilder project and create a new CCB file:
 
-![](./SpriteBuilder_gameEnd.png)
+![Game end screen](./SpriteBuilder_gameEnd.png)
 
 Set the root node size to (320,200) and the anchor point to (0.5, 0.5):
 
-![](./SpriteBuilder_gameEnd_size.png)
+![Change root node size](./SpriteBuilder_gameEnd_size.png)
 
 Add a *CCNodeColor* to this node:
 
-![](./SpriteBuilder_gameEnd_color.png)
+![Add game end color](./SpriteBuilder_gameEnd_color.png)
 
 Set the width and the height to a 100% of the parent container. Set the background color to green and the opacity 0.8. Now we have a green slightly transparent background for our game over screen.
 
@@ -321,23 +321,23 @@ Now we'll need to add two labels to display a game over message and the score th
 
 Add two labels and a button to the node so that your game end screen looks similar to this:
 
-![](./SpriteBuilder_gameEnd_finish.png)
+![Finished game screen](./SpriteBuilder_gameEnd_finish.png)
 
 Now we need to set up some code connections. We need to change the text label that displays the win/lose text and we need to update the score that is displayed. Additionally we need to link a method to the "Restart" button.
 
-![](./SpriteBuilder_gameEnd_code_connection.png)
+![Linking method to restart button](./SpriteBuilder_gameEnd_code_connection.png)
 
 Link the top label to a *_messageLabel* variable.
 
-![](./SpriteBuilder_gameEnd_score_code_connection.png)
+![Link top label](./SpriteBuilder_gameEnd_score_code_connection.png)
 
 Link the displayed score to a variable called *_scoreLabel*.
 
-![](./SpriteBuilder_gameEnd_button_config.png)
+![Link score to variable](./SpriteBuilder_gameEnd_button_config.png)
 
 Set up a selector called "newGame" for the "Restart" button.
 
-![](./SpriteBuilder_gameEnd_class_connection.png)
+![Set up selector for restart button](./SpriteBuilder_gameEnd_class_connection.png)
 
 Finally, set up a custom class called *GameEnd* for the root node.
 
@@ -345,7 +345,7 @@ Now we are done with the setup in SpriteBuilder. **Publish the project and switc
 
 In Xcode we need to create the *GameEnd* class that is linked to the CCB file we just created in SpriteBuilder:
 
-![](./Xcode_gameEnd.png)
+![Create GameEnd class](./Xcode_gameEnd.png)
 
 Next, we need to set up the variables and methods that we have linked in our SpriteBuilder project.
 
@@ -399,7 +399,7 @@ Now we need to add some code to display the *GameEnd* as a popup once a game end
 
  **Now everything is in place!** We are setting the game end screen up and presenting it when a game terminates. You should now test this feature (hint: changing the *WIN_TILE* value makes testing a lot easier). When you win or lose a game you should see a result similar to this:
 
-![](./SimulatorComplete.png)
+![Complete game in simulator](./SimulatorComplete.png)
 
 Basically the game is complete now! There's one minor detail missing: changing the color of tiles depending on their value. That's the last polishing step in this tutorial.
 
@@ -450,7 +450,7 @@ This is the last step and it isn't going to be very complicated. You only need t
 
 All this switch-case does is mapping a tile number to a color. Now your game should look a little more colorful:
 
-![](./SimulatorPolish.png)
+![Polish game](./SimulatorPolish.png)
 
 **You're done!** Congratulations, you have come a really long way. I hope you enjoyed and once again learned a lot more about iOS and game development!
 
